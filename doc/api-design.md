@@ -6,7 +6,7 @@
 | ---------- | ------ | ----------------------------------------------- | ------------------- |
 | `username` | String | min: 3, max: 16, required                       | Nombre de usuario   |
 | `type`     | String | enum: ['admin', 'staff', 'reception'], required | Tipo de usuario     |
-| `password` | String | required                                        | Hasheado con bcrypt |
+| `password` | String | min: 8, max: 16, required                       | Hasheado con bcrypt |
 
 ### Table
 
