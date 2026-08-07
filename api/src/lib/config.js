@@ -40,6 +40,20 @@ const config = convict({
       env: "SESSION_SECURE",
     },
   },
+  cors: {
+    enabled: {
+      doc: "Enable/disable CORS",
+      format: Boolean,
+      default: false,
+      env: "CORS_ENABLED",
+    },
+    origin: {
+      doc: "CORS origin allowed",
+      format: String,
+      default: null,
+      env: "CORS_ORIGIN",
+    },
+  },
 });
 
 config.validate({ allowed: "strict" });

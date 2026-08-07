@@ -9,6 +9,15 @@ const logger = pino({
       };
     },
   },
+  transport: {
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+      levelFirst: true,
+      translateTime: "HH:MM:ss",
+      ignore: "pid,hostname",
+    },
+  },
 }).child({
   service: config.get("build.service"),
   version: config.get("build.version"),

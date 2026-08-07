@@ -12,6 +12,8 @@ const app = express();
 
 app.use(loggerHttp({ logger }));
 app.use(express.json());
+app.use(session);
+
 app.use("/api/", apiRouter);
 
 app.use(errors.notFound);
