@@ -9,5 +9,6 @@ if (config.get("cors.enabled")) router.use(cors);
 
 router.post("/login", users.login);
 router.delete("/sessions", auth, users.logout);
+router.post("/users", users.create);
 
 module.exports = router;

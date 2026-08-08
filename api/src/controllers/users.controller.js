@@ -15,6 +15,8 @@ const ERROR_LOGIN_INVALID = {
   },
 };
 
+// Authentication
+
 module.exports.login = async (req, res, next) => {
   const { username, password } = req.body;
 
@@ -32,4 +34,25 @@ module.exports.login = async (req, res, next) => {
 module.exports.logout = async (req, res, next) => {
   req.session.destroy();
   res.status(204).send();
+};
+
+// Create and delete
+
+module.exports.create = async (req, res, next) => {
+  const { username, type, password } = req.body;
+  const newUser = {
+    username,
+    type,
+    password,
+  };
+
+  const userExists = await User.findOne({ username });
+
+  if (userExists) {
+    return next(createHttpError(409, ERROR_USER_ALREADY_EXIST));
+  } else {
+    const user = await User.create(newUser);
+    delete user.password;
+    res.status(201).json(user);
+  }
 };
