@@ -7,10 +7,14 @@ const cors = require("../lib/cors");
 
 if (config.get("cors.enabled")) router.use(cors);
 
+// User controllers
+
 router.post("/login", users.login);
 router.delete("/sessions", auth, users.logout);
 
 router.post("/users", users.create);
 router.delete("/users/:username", users.remove);
+
+//
 
 module.exports = router;

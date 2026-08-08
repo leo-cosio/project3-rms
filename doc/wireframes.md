@@ -9,3 +9,4 @@ Enlace a Figma: \*
 - `/admin` — Pantalla de administrador para crear usuarios nuevos, gestionar las mesas, el menu y sus precios
 - `/staff` — Pantalla de los camareros para gestionar las mesas y comandas
 - `/reception` — Recepción para gestionar el menu, mesas, reservas y pagos
+- `/users` - Vista de administrador donde ve y administra todos los usuarios
