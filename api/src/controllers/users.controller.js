@@ -24,8 +24,12 @@ module.exports.login = async (req, res, next) => {
 
   const match = user.checkPassword(password);
   if (!match) return next(createHttpError(401, ERROR_LOGIN_INVALID));
-  console.log(req.session.userId);
   req.session.userId = user.id;
 
   res.json(user);
+};
+
+module.exports.logout = async (req, res, next) => {
+  req.session.destroy();
+  res.status(204).send();
 };

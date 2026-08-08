@@ -8,5 +8,6 @@ const cors = require("../lib/cors");
 if (config.get("cors.enabled")) router.use(cors);
 
 router.post("/login", users.login);
+router.delete("/sessions", auth, users.logout);
 
 module.exports = router;
