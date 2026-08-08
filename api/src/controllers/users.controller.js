@@ -56,3 +56,12 @@ module.exports.create = async (req, res, next) => {
     res.status(201).json(user);
   }
 };
+
+module.exports.remove = async (req, res, next) => {
+  const { username } = req.params;
+
+  const user = await User.findOneAndDelete({ username });
+  console.log(user);
+  if (user) res.status(204).send();
+  else next(createHttpError(404, "User not found"));
+};
