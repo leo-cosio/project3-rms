@@ -15,7 +15,7 @@ const ERROR_LOGIN_INVALID = {
   },
 };
 
-// Authentication
+//* Authentication
 
 module.exports.login = async (req, res, next) => {
   const { username, password } = req.body;
@@ -36,7 +36,7 @@ module.exports.logout = async (req, res, next) => {
   res.status(204).send();
 };
 
-// Create and delete
+//* CRUD
 
 module.exports.create = async (req, res, next) => {
   const { username, type, password } = req.body;
@@ -55,6 +55,19 @@ module.exports.create = async (req, res, next) => {
     delete user.password;
     res.status(201).json(user);
   }
+};
+
+//? No need to Read user yet
+
+module.exports.update = async (req, res, next) => {
+  const { username } = req.params;
+  const user = await User.findOneAndUpdate({ username }, req.body, {
+    runValidators: true,
+    returnDocument: "after",
+  });
+
+  if (user) res.json({ data: user });
+  else next(createHttpError(404, "User not found"));
 };
 
 module.exports.remove = async (req, res, next) => {
