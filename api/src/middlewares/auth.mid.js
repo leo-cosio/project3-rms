@@ -15,3 +15,19 @@ module.exports.auth = async (req, res, next) => {
   req.user = user;
   next();
 };
+
+module.exports.requiredRole = (...allowedRoles) => {
+  return async (req, res, next) => {
+    if (!req.user) {
+      next(createHttpError(401, "session not found"));
+    }
+
+    const role = req.user.type;
+
+    if (!allowedRoles.includes(role)) {
+      next(createHttpError(403, "forbidden"));
+    }
+
+    next();
+  };
+};
