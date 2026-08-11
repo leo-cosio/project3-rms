@@ -19,21 +19,22 @@
 
 ### Menu Item
 
-| Campo       | Tipo    | Validaciones                                                                 | Notas                             |
-| ----------- | ------- | ---------------------------------------------------------------------------- | --------------------------------- |
-| `name`      | String  | required, unique                                                             | Nombre del plato o bebida         |
-| `type`      | String  | enum: ['entrante', 'primero', 'principal', 'postre', 'bebida'], <br>required | Tipo de comida o bebida           |
-| `price`     | Number  | required                                                                     | Precio producto                   |
-| `available` | Boolean | required                                                                     | Disponibilidad del plato o bebida |
+| Campo       | Tipo    | Validaciones                                                                         | Notas                             |
+| ----------- | ------- | ------------------------------------------------------------------------------------ | --------------------------------- |
+| `name`      | String  | required, unique                                                                     | Nombre del plato o bebida         |
+| `type`      | String  | enum: ['entrante', 'primero', 'principal', 'postre', 'bebida', "otro"], <br>required | Tipo de comida o bebida           |
+| `price`     | Number  | required                                                                             | Precio producto                   |
+| `available` | Boolean | required                                                                             | Disponibilidad del plato o bebida |
 
 ### Order
 
-| Campo      | Tipo     | Validaciones                                            | Notas                             |
-| ---------- | -------- | ------------------------------------------------------- | --------------------------------- |
-| `table`    | ObjectId | ref: 'table', required                                  | Enlace a mesa correspondiente     |
-| `guests`   | Number   | required, min: 1, max: 12                               | Cantidad de personas en mesa      |
-| `items`    | Array    | { menuItem: ObjectId ref 'menuItem', quantity: Number } | Enlace a todos los platos pedidos |
-| `subtotal` | Number   | required                                                | Total a pagar                     |
+| Campo      | Tipo     | Validaciones                                                                    | Notas                             |
+| ---------- | -------- | ------------------------------------------------------------------------------- | --------------------------------- |
+| `table`    | ObjectId | ref: 'table', required                                                          | Enlace a mesa correspondiente     |
+| `user`     | ObjectId | ref: 'user', required                                                           | Camarero que ejecutó la orden     |
+| `guests`   | Number   | required, min: 1, <br>max: capacity de la mesa (validación custom en el modelo) | Cantidad de personas en mesa      |
+| `items`    | Array    | { menuItem: ObjectId ref 'menuItem', quantity: Number }                         | Enlace a todos los platos pedidos |
+| `subtotal` | Number   | required                                                                        | Total a pagar                     |
 
 ## Extra (Completar si da tiempo)
 
