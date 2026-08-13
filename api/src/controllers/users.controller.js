@@ -28,7 +28,7 @@ module.exports.login = async (req, res, next) => {
   if (!match) return next(createHttpError(401, ERROR_LOGIN_INVALID));
   req.session.userId = user.id;
 
-  res.json(user);
+  res.json({ data: user });
 };
 
 module.exports.logout = async (req, res, next) => {
@@ -66,14 +66,21 @@ module.exports.update = async (req, res, next) => {
     returnDocument: "after",
   });
 
-  if (user) res.json({ data: user });
-  else next(createHttpError(404, "User not found"));
+  if (!user) {
+    return next(createHttpError(404, "User not found"));
+  }
+
+  res.json({ data: user });
 };
 
 module.exports.remove = async (req, res, next) => {
   const { username } = req.params;
 
   const user = await User.findOneAndDelete({ username });
-  if (user) res.status(204).send();
-  else next(createHttpError(404, "User not found"));
+
+  if (!user) {
+    return next(createHttpError(404, "User not found"));
+  }
+
+  res.status(204).send();
 };

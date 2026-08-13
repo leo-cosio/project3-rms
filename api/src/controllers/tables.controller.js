@@ -4,7 +4,7 @@ const Table = require("../lib/models/table.model");
 module.exports.create = async (req, res, next) => {
   const table = await Table.create({ ...req.body });
 
-  res.status(201).json(table);
+  res.status(201).json({ data: table });
 };
 
 module.exports.read = async (req, res, next) => {
@@ -16,7 +16,7 @@ module.exports.read = async (req, res, next) => {
     return next(createHttpError(404, "Table not found"));
   }
 
-  res.json(table);
+  res.json({ data: table });
 };
 
 module.exports.update = async (req, res, next) => {
@@ -31,7 +31,7 @@ module.exports.update = async (req, res, next) => {
     return next(createHttpError(404, "User not found"));
   }
 
-  res.json(table);
+  res.json({ data: table });
 };
 
 module.exports.remove = async (req, res, next) => {
