@@ -57,7 +57,7 @@ module.exports.create = async (req, res, next) => {
   }
 };
 
-//? No need to Read user yet
+//? No need to read user yet
 
 module.exports.update = async (req, res, next) => {
   const { username } = req.params;
@@ -74,7 +74,6 @@ module.exports.remove = async (req, res, next) => {
   const { username } = req.params;
 
   const user = await User.findOneAndDelete({ username });
-  console.log(user);
   if (user) res.status(204).send();
   else next(createHttpError(404, "User not found"));
 };
