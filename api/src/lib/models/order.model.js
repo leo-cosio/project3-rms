@@ -5,7 +5,7 @@ const orderSchema = new Schema(
   {
     table: {
       type: Schema.Types.ObjectId,
-      ref: "table",
+      ref: "Table",
       required: true,
     },
     guests: {
@@ -57,4 +57,4 @@ const orderSchema = new Schema(
 );
 
 const Order = mongoose.model("Order", orderSchema);
-modules.exports = Order;
+module.exports = Order;
