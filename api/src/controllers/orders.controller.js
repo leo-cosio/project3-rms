@@ -1,7 +1,17 @@
 const createHttpError = require("http-errors");
 const Order = require("../lib/models/order.model");
+const Table = require("../lib/models/table.model");
 
 module.exports.create = async (req, res, next) => {
+  const { tableId } = req.params;
+  const table = await Table.findOneAndUpdate(
+    { table: tableId, status: "libre" },
+    { status: "ocupada" },
+    { returnDocument: "after" },
+  );
+
+  if (!table) return next(createHttpError(404, "Table not found"));
+
   const order = await Order.create({ ...req.body });
 
   res.status(201).json({ data: order });
