@@ -37,4 +37,4 @@ const itemSchema = new Schema(
 );
 
 const Item = mongoose.model("Item", itemSchema);
-model.exports = Item;
+module.exports = Item;

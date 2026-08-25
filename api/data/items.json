@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Pan de ajo",
+    "type": "entrante",
+    "price": 4.5,
+    "available": true
+  },
+  {
+    "name": "Croquetas de jamón ibérico",
+    "type": "entrante",
+    "price": 8.5,
+    "available": true
+  },
+  {
+    "name": "Patatas bravas",
+    "type": "entrante",
+    "price": 7,
+    "available": true
+  },
+  {
+    "name": "Gambas al ajillo",
+    "type": "entrante",
+    "price": 12,
+    "available": true
+  },
+  {
+    "name": "Ensalada César",
+    "type": "primero",
+    "price": 9.5,
+    "available": true
+  },
+  {
+    "name": "Gazpacho andaluz",
+    "type": "primero",
+    "price": 6.5,
+    "available": true
+  },
+  {
+    "name": "Ensalada de queso de cabra",
+    "type": "primero",
+    "price": 10,
+    "available": true
+  },
+  {
+    "name": "Sopa de marisco",
+    "type": "primero",
+    "price": 11,
+    "available": true
+  },
+  {
+    "name": "Hamburguesa de ternera",
+    "type": "principal",
+    "price": 13.5,
+    "available": true
+  },
+  {
+    "name": "Entrecot de ternera",
+    "type": "principal",
+    "price": 22,
+    "available": true
+  },
+  {
+    "name": "Pollo al curry",
+    "type": "principal",
+    "price": 14,
+    "available": true
+  },
+  {
+    "name": "Salmón a la plancha",
+    "type": "principal",
+    "price": 18,
+    "available": true
+  },
+  {
+    "name": "Paella de marisco",
+    "type": "principal",
+    "price": 19,
+    "available": true
+  },
+  {
+    "name": "Pasta carbonara",
+    "type": "principal",
+    "price": 12.5,
+    "available": true
+  },
+  {
+    "name": "Pizza cuatro quesos",
+    "type": "principal",
+    "price": 13,
+    "available": true
+  },
+  {
+    "name": "Pizza prosciutto",
+    "type": "principal",
+    "price": 13.5,
+    "available": true
+  },
+  {
+    "name": "Tarta de queso",
+    "type": "postre",
+    "price": 6,
+    "available": true
+  },
+  {
+    "name": "Tiramisú",
+    "type": "postre",
+    "price": 6.5,
+    "available": true
+  },
+  {
+    "name": "Brownie de chocolate",
+    "type": "postre",
+    "price": 6,
+    "available": true
+  },
+  {
+    "name": "Flan casero",
+    "type": "postre",
+    "price": 5,
+    "available": true
+  },
+  {
+    "name": "Agua mineral",
+    "type": "bebida",
+    "price": 2,
+    "available": true
+  },
+  {
+    "name": "Agua con gas",
+    "type": "bebida",
+    "price": 2.2,
+    "available": true
+  },
+  {
+    "name": "Coca-Cola",
+    "type": "bebida",
+    "price": 2.5,
+    "available": true
+  },
+  {
+    "name": "Fanta de naranja",
+    "type": "bebida",
+    "price": 2.5,
+    "available": true
+  },
+  {
+    "name": "Sprite",
+    "type": "bebida",
+    "price": 2.5,
+    "available": true
+  },
+  {
+    "name": "Nestea",
+    "type": "bebida",
+    "price": 2.5,
+    "available": true
+  },
+  {
+    "name": "Cerveza",
+    "type": "bebida",
+    "price": 2.8,
+    "available": true
+  },
+  {
+    "name": "Cerveza sin alcohol",
+    "type": "bebida",
+    "price": 2.8,
+    "available": true
+  },
+  {
+    "name": "Copa de vino tinto",
+    "type": "bebida",
+    "price": 3.5,
+    "available": true
+  },
+  {
+    "name": "Copa de vino blanco",
+    "type": "bebida",
+    "price": 3.5,
+    "available": true
+  },
+  {
+    "name": "Café solo",
+    "type": "bebida",
+    "price": 1.5,
+    "available": true
+  },
+  {
+    "name": "Café con leche",
+    "type": "bebida",
+    "price": 1.8,
+    "available": true
+  },
+  {
+    "name": "Té",
+    "type": "bebida",
+    "price": 1.8,
+    "available": true
+  }
+]

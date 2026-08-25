@@ -50,7 +50,7 @@ const config = convict({
     origin: {
       doc: "CORS origin allowed",
       format: String,
-      default: null,
+      default: "http://localhost:5173",
       env: "CORS_ORIGIN",
     },
   },
