@@ -14,6 +14,7 @@ if (config.get("cors.enabled")) router.use(cors);
 //*   - AUTH
 router.post("/login", users.login);
 router.delete("/sessions", auth, users.logout);
+router.get("/auth/me", auth, users.me);
 
 //*   - CRUD
 router.post("/users", auth, requiredRole("admin"), users.create);

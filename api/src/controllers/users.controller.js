@@ -36,6 +36,10 @@ module.exports.logout = async (req, res, next) => {
   res.status(204).send();
 };
 
+module.exports.me = (req, res, next) => {
+  res.status(200).json({ data: req.user });
+};
+
 //* CRUD
 
 module.exports.create = async (req, res, next) => {
