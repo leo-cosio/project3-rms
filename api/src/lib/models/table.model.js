@@ -16,8 +16,7 @@ const tableSchema = new Schema(
     status: {
       type: String,
       required: true,
-      enum: ["libre", "ocupada", "pendiente"],
-      required: true,
+      enum: ["libre", "ocupada"],
     },
     capacity: {
       type: Number,

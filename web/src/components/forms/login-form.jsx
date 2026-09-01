@@ -17,13 +17,15 @@ export default function LoginForm() {
       const { data } = await AuthService.login(user);
       user = data;
       login(user);
-      console.log(user);
+
       if (user.type === "admin") {
         navigate("/dashboard");
       }
+
       if (user.type === "staff") {
         navigate("/sala");
       }
+
       if (user.type === "reception") {
         navigate("/recepcion");
       }
@@ -50,7 +52,7 @@ export default function LoginForm() {
           required
           autoComplete="email"
           className="block w-full rounded-md bg-background px-3 py-1.5 text-base text-text outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-          {...register("username", { required: "User username is required" })}
+          {...register("username", { required: "Username is required" })}
         />
         {errors.username && (
           <p className="text-red-600">{errors.username.message}</p>
@@ -73,7 +75,7 @@ export default function LoginForm() {
           required
           autoComplete="current-password"
           className="block w-full rounded-md bg-background px-3 py-1.5 text-base text-text outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-          {...register("password", { required: "User password is required" })}
+          {...register("password", { required: "Password is required" })}
         />
         {errors.password && (
           <p className="text-red-600">{errors.password.message}</p>

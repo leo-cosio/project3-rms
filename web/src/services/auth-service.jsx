@@ -10,6 +10,10 @@ export async function login(user) {
   return data;
 }
 
+export async function logout() {
+  await http.delete("/sessions");
+}
+
 export async function getCurrentUser() {
   const { data } = await http.get("/auth/me");
   return data;

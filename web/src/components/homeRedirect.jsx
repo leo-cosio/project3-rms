@@ -15,7 +15,7 @@ export default function HomeRedirect() {
   }
 
   if (user.type === "staff") {
-    return <Navigate to="/sala" replace />;
+    return <Navigate to="/tables" replace />;
   }
 
   if (user.type === "reception") {

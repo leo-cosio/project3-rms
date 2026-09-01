@@ -1,0 +1,302 @@
+[
+  {
+    "number": 1,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 2,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 2
+  },
+  {
+    "number": 3,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 4,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 5,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 6,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 6
+  },
+  {
+    "number": 7,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 8,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 9,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 10,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 8
+  },
+  {
+    "number": 11,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 12,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 2
+  },
+  {
+    "number": 13,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 14,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 15,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 8
+  },
+  {
+    "number": 16,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 6
+  },
+  {
+    "number": 17,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 18,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 19,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 10
+  },
+  {
+    "number": 20,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 8
+  },
+  {
+    "number": 21,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 22,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 6
+  },
+  {
+    "number": 23,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 24,
+    "location": "sala",
+    "status": "ocupada",
+    "capacity": 12
+  },
+  {
+    "number": 25,
+    "location": "sala",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 26,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 2
+  },
+  {
+    "number": 27,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 28,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 29,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 30,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 2
+  },
+  {
+    "number": 31,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 4
+  },
+  {
+    "number": 32,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 6
+  },
+  {
+    "number": 33,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 8
+  },
+  {
+    "number": 34,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 35,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 36,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 8
+  },
+  {
+    "number": 37,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 38,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 39,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 10
+  },
+  {
+    "number": 40,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 6
+  },
+  {
+    "number": 41,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 2
+  },
+  {
+    "number": 42,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 43,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 8
+  },
+  {
+    "number": 44,
+    "location": "terraza",
+    "status": "ocupada",
+    "capacity": 12
+  },
+  {
+    "number": 45,
+    "location": "terraza",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 46,
+    "location": "otra",
+    "status": "ocupada",
+    "capacity": 4
+  },
+  {
+    "number": 47,
+    "location": "otra",
+    "status": "libre",
+    "capacity": 6
+  },
+  {
+    "number": 48,
+    "location": "otra",
+    "status": "ocupada",
+    "capacity": 8
+  },
+  {
+    "number": 49,
+    "location": "otra",
+    "status": "libre",
+    "capacity": 10
+  },
+  {
+    "number": 50,
+    "location": "otra",
+    "status": "ocupada",
+    "capacity": 12
+  }
+]

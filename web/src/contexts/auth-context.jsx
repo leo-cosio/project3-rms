@@ -5,6 +5,7 @@ const AuthContext = createContext(null);
 
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const login = (user) => {
     setUser(user);
@@ -21,6 +22,8 @@ export function AuthContextProvider({ children }) {
         setUser(response.data);
       } catch {
         setUser(null);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -28,7 +31,7 @@ export function AuthContextProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

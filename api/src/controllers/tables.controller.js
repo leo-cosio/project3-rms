@@ -7,6 +7,12 @@ module.exports.create = async (req, res, next) => {
   res.status(201).json({ data: table });
 };
 
+module.exports.list = async (req, res, next) => {
+  const tables = await Table.find().select("number status -_id").lean();
+
+  res.json({ data: tables });
+};
+
 module.exports.read = async (req, res, next) => {
   const { number } = req.params;
 

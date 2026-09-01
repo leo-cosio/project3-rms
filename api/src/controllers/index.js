@@ -25,6 +25,7 @@ router.delete("/users/:username", auth, requiredRole("admin"), users.remove);
 //? - Table CRUD
 
 router.post("/tables", auth, requiredRole("admin"), tables.create);
+router.get("/tables", auth, tables.list);
 router.get("/tables/:number", auth, tables.read);
 router.patch("/tables/:number", auth, requiredRole("admin"), tables.update);
 router.delete("/tables/:number", auth, requiredRole("admin"), tables.remove);
