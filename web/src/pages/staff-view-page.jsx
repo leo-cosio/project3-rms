@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { getTables } from "../services/tables-services";
 import { useAuth } from "../contexts/auth-context";
-import Table from "../components/table";
+import { StaffNavbar, Table } from "../components";
 
 export default function StaffViewPage() {
   const [tables, setTables] = useState([]);
   const [filter, setFilter] = useState("todas");
+  const [location, setLocation] = useState("sala");
   const { user } = useAuth();
 
   useEffect(() => {
@@ -17,41 +18,40 @@ export default function StaffViewPage() {
     loadTables();
   }, []);
 
-  const visibleTables =
-    filter === "todas"
-      ? tables
-      : tables.filter((table) => table.status === filter);
+  const visibleTables = [...tables]
+    .filter((table) => table.location === location)
+    .filter((table) => filter === "todas" || table.status === filter)
+    .sort((a, b) => a.number - b.number);
 
   return (
-    <div className="h-screen">
-      <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-background border-b border-gray-200">
-        <h1>
-          Camarero <span className="capitalize">{user.username}</span>
-        </h1>
-      </nav>
+    <div className="h-screen bg-background">
+      <StaffNavbar
+        user={user}
+        location={location}
+        onLocationChange={setLocation}
+      />
 
-      <main className="pt-20 p-6">
-        <div className="m-3">
+      <main className="flex h-full flex-col pt-30">
+        <div className="shrink-0 p-6">
           <select
-            name="Status"
-            id="status"
             value={filter}
             onChange={(event) => setFilter(event.target.value)}
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2"
           >
             <option value="todas">Todas</option>
             <option value="libre">Libre</option>
             <option value="ocupada">Ocupada</option>
           </select>
+        </div>
 
-          <div className="flex flex-wrap gap-6 mt-3 justify-around">
+        <div className="flex-1 overflow-y-auto px-6 pb-6">
+          <div className="flex flex-wrap justify-around gap-6">
             {visibleTables.map((table) => (
               <Table key={table.number} table={table} />
             ))}
           </div>
         </div>
       </main>
-
-      <footer className="shrink-0">total</footer>
     </div>
   );
 }

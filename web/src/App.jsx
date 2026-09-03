@@ -1,5 +1,10 @@
 import { Routes, Route } from "react-router";
-import { LoginPage, ReceptionViewPage, StaffViewPage } from "./pages";
+import {
+  LoginPage,
+  ReceptionViewPage,
+  StaffViewPage,
+  TableViewPage,
+} from "./pages";
 import PrivateRoute from "./guards/privateRoute";
 import AdminViewPage from "./pages/admin-view-page";
 import GuestRoute from "./guards/guestRoute";
@@ -39,6 +44,14 @@ function App() {
           element={
             <PrivateRoute allowedRole={["recepcion"]}>
               <ReceptionViewPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tables/:number"
+          element={
+            <PrivateRoute allowedRole={["staff", "recepcion"]}>
+              <TableViewPage />
             </PrivateRoute>
           }
         />

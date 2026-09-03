@@ -8,7 +8,9 @@ module.exports.create = async (req, res, next) => {
 };
 
 module.exports.list = async (req, res, next) => {
-  const tables = await Table.find().select("number status -_id").lean();
+  const tables = await Table.find()
+    .select("number location status -_id")
+    .lean();
 
   res.json({ data: tables });
 };
