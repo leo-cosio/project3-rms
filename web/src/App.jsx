@@ -4,9 +4,9 @@ import {
   ReceptionViewPage,
   StaffViewPage,
   TableViewPage,
+  AdminViewPage,
 } from "./pages";
 import PrivateRoute from "./guards/privateRoute";
-import AdminViewPage from "./pages/admin-view-page";
 import GuestRoute from "./guards/guestRoute";
 import { HomeRedirect } from "./components";
 

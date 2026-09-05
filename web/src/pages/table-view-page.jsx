@@ -1,3 +1,3 @@
 export default function TableViewPage() {
-  return <></>;
+  return <div className="h-screen bg-background"></div>;
 }
