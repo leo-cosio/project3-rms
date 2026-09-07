@@ -1,5 +1,10 @@
-export default function OrderBar({ order, onOpen }) {
-  const totalItems = order.reduce((total, item) => total + item.quantity, 0);
+export default function OrderBar({ order, currentOrder, onOpen }) {
+  const currentOrderItems =
+    currentOrder?.items.reduce((total, item) => total + item.quantity, 0) ?? 0;
+
+  const newOrderItems = order.reduce((total, item) => total + item.quantity, 0);
+
+  const totalItems = currentOrderItems + newOrderItems;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-3">

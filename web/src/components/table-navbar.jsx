@@ -1,4 +1,4 @@
-export default function TableNavbar({ table, type, onTypeChange }) {
+export default function TableNavbar({ table, type, onTypeChange, onExit }) {
   const itemTypes = [
     "entrante",
     "primero",
@@ -10,14 +10,21 @@ export default function TableNavbar({ table, type, onTypeChange }) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-30 bg-background border-b border-gray-200 flex flex-col">
-      {/* Cabecera */}
-      <div className="flex items-center justify-between px-6 pt-3">
-        <h1 className="text-xl font-semibold text-gray-800">
+      <div className="flex items-center justify-between px-4 pt-3">
+        <button
+          onClick={onExit}
+          className="flex h-10 items-center px-2 text-sm font-medium text-danger active:bg-red-50"
+        >
+          ← Salir
+        </button>
+
+        <h1 className="text-lg font-semibold">
           Mesa <span className="text-primary">{table.number}</span>
         </h1>
+
+        <div className="w-12" />
       </div>
 
-      {/* Categorías */}
       <div className="mt-auto w-full overflow-x-auto">
         <div className="flex h-12 min-w-max px-4">
           {itemTypes.map((item) => {

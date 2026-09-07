@@ -22,3 +22,17 @@ export async function getMenu() {
 
   return data;
 }
+
+export async function createOrder(number, items) {
+  const { data } = await http.post(`/tables/${number}/orders`, {
+    items,
+  });
+
+  return data;
+}
+
+export async function getOrder(number) {
+  const { data } = await http.get(`/tables/${number}/orders`);
+
+  return data;
+}

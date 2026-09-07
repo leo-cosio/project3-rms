@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(
@@ -8,28 +9,17 @@ const orderSchema = new Schema(
       ref: "Table",
       required: true,
     },
-    guests: {
-      type: Number,
-      required: true,
-      min: 1,
-      validate: {
-        validator: async function (value) {
-          const table = await mongoose.model("Table").findById(this.table);
 
-          if (!table) return false;
-
-          return value <= table.capacity;
-        },
-        message: "Numero de clientes excede la capacidad de la mesa",
-      },
-    },
     items: [
       {
+        _id: false,
+
         menuItem: {
           type: Schema.Types.ObjectId,
           ref: "Item",
           required: true,
         },
+
         quantity: {
           type: Number,
           required: true,
@@ -37,13 +27,23 @@ const orderSchema = new Schema(
         },
       },
     ],
+
     subtotal: {
       type: Number,
       required: true,
+      min: 0,
+    },
+
+    status: {
+      type: String,
+      enum: ["open", "closed"],
+      default: "open",
     },
   },
+
   {
     timestamps: true,
+
     toJSON: {
       virtuals: true,
       transform: function (doc, ret) {
@@ -56,5 +56,16 @@ const orderSchema = new Schema(
   },
 );
 
+orderSchema.index(
+  { table: 1 },
+  {
+    unique: true,
+    partialFilterExpression: {
+      status: "open",
+    },
+  },
+);
+
 const Order = mongoose.model("Order", orderSchema);
+
 module.exports = Order;
