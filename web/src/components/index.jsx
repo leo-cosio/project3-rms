@@ -2,3 +2,8 @@ export { default as HomeRedirect } from "./homeRedirect";
 export { default as Sidebar } from "./sidebar";
 export { default as Table } from "./table";
 export { default as StaffNavbar } from "./staff-navbar";
+export { default as TableNavbar } from "./table-navbar";
+export { default as Loading } from "./loading";
+export { default as MenuItem } from "./menu-item";
+export { default as OrderBar } from "./order-bar";
+export { default as OrderPanel } from "./order-panel";

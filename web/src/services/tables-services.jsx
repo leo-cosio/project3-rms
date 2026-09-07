@@ -10,3 +10,15 @@ export async function getTables() {
 
   return data;
 }
+
+export async function getTableInfo(number) {
+  const { data } = await http.get(`/tables/${number}`);
+
+  return data;
+}
+
+export async function getMenu() {
+  const { data } = await http.get("/items");
+
+  return data;
+}

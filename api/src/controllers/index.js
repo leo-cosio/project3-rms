@@ -33,7 +33,7 @@ router.delete("/tables/:number", auth, requiredRole("admin"), tables.remove);
 //? - Item CRUD
 
 router.post("/items", auth, requiredRole("admin"), items.create);
-router.get("/items", auth, tables.read);
+router.get("/items", auth, items.read);
 router.patch("/items/:itemId", auth, requiredRole("admin"), items.update);
 router.delete("/items/:itemId", auth, requiredRole("admin"), items.remove);
 
