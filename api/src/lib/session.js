@@ -17,6 +17,6 @@ module.exports = session({
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
     secure: config.get("session.secure"),
-    sameSite: "none",
+    sameSite: config.get("session.secure") ? "none" : "lax",
   },
 });

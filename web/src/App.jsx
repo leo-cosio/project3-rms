@@ -69,7 +69,7 @@ function App() {
       <Route
         path="/tables"
         element={
-          <PrivateRoute allowedRole={["staff", "recepcion"]}>
+          <PrivateRoute allowedRole={["staff", "reception"]}>
             <StaffViewPage />
           </PrivateRoute>
         }
@@ -78,7 +78,7 @@ function App() {
       <Route
         path="/tables/:number"
         element={
-          <PrivateRoute allowedRole={["staff", "recepcion"]}>
+          <PrivateRoute allowedRole={["staff", "reception"]}>
             <TableViewPage />
           </PrivateRoute>
         }
@@ -87,7 +87,7 @@ function App() {
       <Route
         path="/recepcion"
         element={
-          <PrivateRoute allowedRole={["recepcion"]}>
+          <PrivateRoute allowedRole={["reception"]}>
             <ReceptionViewPage />
           </PrivateRoute>
         }

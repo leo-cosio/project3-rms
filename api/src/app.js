@@ -10,6 +10,8 @@ require("./lib/db");
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 app.use(loggerHttp({ logger }));
 app.use(express.json());
 app.use(session);
