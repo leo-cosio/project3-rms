@@ -9,7 +9,7 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.list = async (req, res, next) => {
   const tables = await Table.find()
-    .select("number location status -_id")
+    .select("number location capacity status -_id")
     .lean();
 
   res.json({ data: tables });
@@ -43,13 +43,23 @@ module.exports.update = async (req, res, next) => {
 };
 
 module.exports.remove = async (req, res, next) => {
-  const { number } = req.params;
+  try {
+    const { number } = req.params;
 
-  const table = await Table.findOneAndDelete({ number });
+    const table = await Table.findOne({ number });
 
-  if (!table) {
-    return next(createHttpError(404, "Table not found"));
+    if (!table) {
+      return next(createHttpError(404, "Table not found"));
+    }
+
+    if (table.status === "ocupada") {
+      return next(createHttpError(400, "Cannot delete an occupied table"));
+    }
+
+    await Table.findByIdAndDelete(table._id);
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
   }
-
-  res.status(204).send();
 };

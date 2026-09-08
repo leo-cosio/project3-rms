@@ -22,7 +22,7 @@ router.get("/auth/me", auth, users.me);
 
 //*   - CRUD
 router.post("/users", auth, requiredRole("admin"), users.create);
-// READ?
+router.get("/users", auth, requiredRole("admin"), users.list);
 router.patch("/users/:username", auth, requiredRole("admin"), users.update);
 router.delete("/users/:username", auth, requiredRole("admin"), users.remove);
 

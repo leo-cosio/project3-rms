@@ -3,3 +3,6 @@ export { default as AdminViewPage } from "./admin-view-page";
 export { default as ReceptionViewPage } from "./reception-view-page";
 export { default as StaffViewPage } from "./staff-view-page";
 export { default as TableViewPage } from "./table-view-page";
+export { default as AdminItemsPage } from "./admin-items-page";
+export { default as AdminTablesPage } from "./admin-tables-page";
+export { default as AdminUsersPage } from "./admin-users-page";

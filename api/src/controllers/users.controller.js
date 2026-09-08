@@ -1,4 +1,5 @@
 const createHttpError = require("http-errors");
+
 const User = require("../lib/models/user.model");
 
 const ERROR_USER_ALREADY_EXIST = {
@@ -15,17 +16,23 @@ const ERROR_LOGIN_INVALID = {
   },
 };
 
-//* Authentication
+//? Authentication
 
 module.exports.login = async (req, res, next) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({ username });
 
-  if (!user) return next(createHttpError(401, ERROR_LOGIN_INVALID));
+  if (!user) {
+    return next(createHttpError(401, ERROR_LOGIN_INVALID));
+  }
 
   const match = user.checkPassword(password);
-  if (!match) return next(createHttpError(401, ERROR_LOGIN_INVALID));
+
+  if (!match) {
+    return next(createHttpError(401, ERROR_LOGIN_INVALID));
+  }
+
   req.session.userId = user.id;
 
   res.json({ data: user });
@@ -33,6 +40,7 @@ module.exports.login = async (req, res, next) => {
 
 module.exports.logout = async (req, res, next) => {
   req.session.destroy();
+
   res.status(204).send();
 };
 
@@ -40,51 +48,84 @@ module.exports.me = (req, res, next) => {
   res.status(200).json({ data: req.user });
 };
 
-//* CRUD
+//? CRUD
 
-module.exports.create = async (req, res, next) => {
-  const { username, type, password } = req.body;
-  const newUser = {
-    username,
-    type,
-    password,
-  };
+module.exports.list = async (req, res, next) => {
+  try {
+    const users = await User.find().select("-password");
 
-  const userExists = await User.findOne({ username });
-
-  if (userExists) {
-    return next(createHttpError(409, ERROR_USER_ALREADY_EXIST));
-  } else {
-    const user = await User.create(newUser);
-    delete user.password;
-    res.status(201).json(user);
+    res.json({
+      data: users,
+    });
+  } catch (error) {
+    next(error);
   }
 };
 
-//? No need to read user yet
+module.exports.create = async (req, res, next) => {
+  try {
+    const { username, type, password } = req.body;
+
+    const userExists = await User.findOne({ username });
+
+    if (userExists) {
+      return next(createHttpError(409, ERROR_USER_ALREADY_EXIST));
+    }
+
+    const user = await User.create({
+      username,
+      type,
+      password,
+    });
+
+    const userData = user.toObject();
+    delete userData.password;
+
+    res.status(201).json({
+      data: userData,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports.update = async (req, res, next) => {
-  const { username } = req.params;
-  const user = await User.findOneAndUpdate({ username }, req.body, {
-    runValidators: true,
-    returnDocument: "after",
-  });
+  try {
+    const { username } = req.params;
 
-  if (!user) {
-    return next(createHttpError(404, "User not found"));
+    const user = await User.findOneAndUpdate({ username }, req.body, {
+      runValidators: true,
+      returnDocument: "after",
+    }).select("-password");
+
+    if (!user) {
+      return next(createHttpError(404, "User not found"));
+    }
+
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
   }
-
-  res.json({ data: user });
 };
 
 module.exports.remove = async (req, res, next) => {
-  const { username } = req.params;
+  try {
+    const { username } = req.params;
 
-  const user = await User.findOneAndDelete({ username });
+    if (req.user.username === username) {
+      return next(createHttpError(400, "You cannot delete your own user"));
+    }
 
-  if (!user) {
-    return next(createHttpError(404, "User not found"));
+    const user = await User.findOneAndDelete({ username });
+
+    if (!user) {
+      return next(createHttpError(404, "User not found"));
+    }
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
   }
-
-  res.status(204).send();
 };

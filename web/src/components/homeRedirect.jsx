@@ -11,7 +11,7 @@ export default function HomeRedirect() {
   }
 
   if (user.type === "admin") {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/admin" replace />;
   }
 
   if (user.type === "staff") {
