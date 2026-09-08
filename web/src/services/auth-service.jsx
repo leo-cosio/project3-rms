@@ -1,9 +1,4 @@
-import axios from "axios";
-
-const http = axios.create({
-  baseURL: "http://localhost:3000/api",
-  withCredentials: true,
-});
+import http from "./base-api";
 
 export async function login(user) {
   const { data } = await http.post("/login", user);
