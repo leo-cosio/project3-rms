@@ -1,10 +1,11 @@
 import { Navigate } from "react-router";
 import { useAuth } from "../contexts/auth-context";
+import Loading from "./loading";
 
 export default function HomeRedirect() {
   const { user, loading } = useAuth();
 
-  if (loading) return null;
+  if (loading) return <Loading />;
 
   if (!user) {
     return <Navigate to="/login" replace />;
